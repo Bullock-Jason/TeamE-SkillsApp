@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 25, 2016 6:36:24 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.SkillsTable" table="skills_table" catalog="cit360_team_e_skills_db" optimistic-lock="version">
+        <id name="skillsId" type="java.lang.Integer">
+            <column name="skillsID" />
+            <generator class="identity" />
+        </id>
+        <property name="skillCategory" type="string">
+            <column name="skill_category" length="40" not-null="true" />
+        </property>
+        <property name="skillName" type="string">
+            <column name="skillName" length="40" not-null="true" />
+        </property>
+        <set name="memberTables" table="member_table" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="skillsID" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="DB.MemberTable" />
+        </set>
+    </class>
+</hibernate-mapping>

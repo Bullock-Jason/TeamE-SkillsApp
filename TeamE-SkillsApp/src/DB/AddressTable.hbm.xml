@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 25, 2016 6:36:24 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.AddressTable" table="address_table" catalog="cit360_team_e_skills_db" optimistic-lock="version">
+        <id name="addressId" type="java.lang.Integer">
+            <column name="addressID" />
+            <generator class="identity" />
+        </id>
+        <property name="streetAddress" type="string">
+            <column name="streetAddress" length="200" not-null="true" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="80" not-null="true" />
+        </property>
+        <property name="homeState" type="string">
+            <column name="homeState" length="2" not-null="true" />
+        </property>
+        <property name="zipCode" type="string">
+            <column name="zipCode" length="10" not-null="true" />
+        </property>
+        <set name="memberTables" table="member_table" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="addressID" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="DB.MemberTable" />
+        </set>
+    </class>
+</hibernate-mapping>

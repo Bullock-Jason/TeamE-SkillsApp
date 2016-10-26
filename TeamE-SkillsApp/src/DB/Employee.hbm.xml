@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 25, 2016 6:36:24 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.Employee" table="employee" catalog="cit360_team_e_skills_db" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="ename" type="string">
+            <column name="Ename" length="20" />
+        </property>
+        <property name="mobile" type="java.lang.Integer">
+            <column name="mobile" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>
