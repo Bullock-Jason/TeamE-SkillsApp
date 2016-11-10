@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 9, 2016 6:54:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.MemberTable" table="member_table" catalog="cit360_team_e_skills_db" optimistic-lock="version">
+        <id name="memberId" type="int">
+            <column name="memberID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="addressTable" class="DB.AddressTable" fetch="select">
+            <column name="addressID" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="skillsTable" class="DB.SkillsTable" fetch="select">
+            <column name="skillsID" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="lname" type="string">
+            <column name="LName" length="40" not-null="true" />
+        </property>
+        <property name="fname" type="string">
+            <column name="FName" length="40" not-null="true" />
+        </property>
+        <property name="mname" type="string">
+            <column name="MName" length="40" />
+        </property>
+        <property name="phone" type="int">
+            <column name="phone" not-null="true" />
+        </property>
+        <property name="phoneType" type="int">
+            <column name="phoneType" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" not-null="true" />
+        </property>
+        <property name="wardId" type="java.lang.Integer">
+            <column name="wardID" />
+        </property>
+        <set name="userTables" table="user_table" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="memberID" not-null="true" />
+            </key>
+            <one-to-many class="DB.UserTable" />
+        </set>
+    </class>
+</hibernate-mapping>

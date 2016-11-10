@@ -41,11 +41,14 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="cit360_team_e_skills_db"/>
-  <table-filter match-name="USER"/>
-  <table-filter match-name="address_table"/>
+  <table-filter match-name="owner"/>
+  <table-filter match-name="jason_json"/>
   <table-filter match-name="employee"/>
-  <table-filter match-name="user_table"/>
-  <table-filter match-name="location_table"/>
   <table-filter match-name="member_table"/>
+  <table-filter match-name="location_table"/>
+  <table-filter match-name="car"/>
+  <table-filter match-name="address_table"/>
   <table-filter match-name="skills_table"/>
+  <table-filter match-name="user_table"/>
+  <table-filter match-name="USER"/>
 </hibernate-reverse-engineering>

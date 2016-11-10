@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 9, 2016 6:54:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DB.User" table="USER" catalog="cit360_team_e_skills_db" optimistic-lock="version">
+        <id name="userId" type="int">
+            <column name="USER_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="username" type="string">
+            <column name="USERNAME" length="20" not-null="true" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="CREATED_BY" length="20" not-null="true" />
+        </property>
+        <property name="createdDate" type="date">
+            <column name="CREATED_DATE" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
